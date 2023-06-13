@@ -1,11 +1,26 @@
-# mosaicml/mpt-7b-chat
+## mosaicml/mpt-7b-chat
 
-Run [mosaicml/mpt-7b-chat](https://huggingface.co/mosaicml/mpt-7b-chat) in a GPU environment with a single command. 📡
+This code demonstrates how to run the [mosaicml/mpt-7b-chat](https://huggingface.co/mosaicml/mpt-7b-chat) model
 
-## Speed Run
+## Deploying on Beam
 
-1. Signup for [Beam](http://beam.cloud)
-2. Download the CLI and Python SDK
-3. Clone this template locally: `beam create-app openllama`
-4. Spin up a GPU environment to run inference: `beam start app.py`
-5. Deploy the app as a web API: `beam deploy app.py`
+You can easily deploy the code as web endpoints:
+
+1. Create an account on [Beam](https://beam.cloud)
+2. Download the CLI and Python-SDK. [Instructions here](https://docs.beam.cloud/getting-started/quickstart).
+3. run `beam deploy app.py` from the working directory.
+
+## Example Request
+
+```cURL
+ curl -X POST --compressed "https://beam.slai.io/cjm9u" \
+   -H 'Authorization: Basic [ADD_YOUR_AUTH_TOKEN]' \
+   -H 'Content-Type: application/json' \
+   -d '{"query": "What is up?"}'
+```
+
+## Example Response
+
+```cURL
+{"pred":{"output_text":" I'm good and you?"}}
+```
